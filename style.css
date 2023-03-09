@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+:root{
+    --logo-font: 'Tilt Neon', cursive;
+    --content-font: 'Ubuntu',sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+}
+
+.nav-container {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .menu-options {
+    display: flex;
+    height: 100vh;
+    width: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translate(-150%);
+    transition: transform 0.4s ease-in-out;
+    background-color: #C3195D;
+}
+
+.navbar .menu-options li {
+    list-style: none;
+    margin-bottom: 1.2rem;
+}
+
+.navbar .menu-options li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    padding: 17px;
+    font-family: var(--content-font);
+    font-weight: 500;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.navbar .menu-options li a:hover {
+    font-weight:bolder;
+    text-decoration: overline;
+    letter-spacing: 1.50px;
+}
+
+.nav-container {
+    position: relative;
+    display: block;
+    background-color: #C04A82;
+}
+
+.nav-container .checkbox {
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 35px;
+    height: 25px;
+    width: 30px;
+    z-index: 5;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.nav-container .ham-lines {
+    position: absolute;
+    height: 25px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 15px;
+    left: 35px;
+    z-index: 2;
+}
+
+.nav-container .ham-lines .line {
+    height: 4px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 7px;
+    display: block;
+}
+
+.nav-container .ham-lines .line-1 {
+    transform-origin: 0% 0%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.nav-container .ham-lines .line-2 {
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-container .ham-lines .line-3 {
+    transform-origin: 0% 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+.site-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #ffffff;
+    position: absolute;
+    right: 35px;
+    top: 9px;
+    font-family: var(--logo-font);
+    text-transform: capitalize;
+    letter-spacing: 1.50px;
+}
+
+.nav-container input[type='checkbox']:checked~.menu-options {
+    transform: translateX(0);
+}
+
+.nav-container input[type='checkbox']:checked~.ham-lines .line-1 {
+    transform: rotate(45deg);
+}
+
+.nav-container input[type='checkbox']:checked~.ham-lines .line-2 {
+    transform: scaleY(0);
+}
+
+.nav-container input[type='checkbox']:checked~.ham-lines .line-3 {
+    transform: rotate(-45deg);
+}
+
+.nav-container input[type='checkbox']:checked~.site-logo {
+    display: none;
+}
